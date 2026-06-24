@@ -1,0 +1,70 @@
+\usepackage{helvet}
+
+\renewcommand\familydefault{\sfdefault}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{hyperref}
+\usepackage{pifont}
+\usepackage{longtable}
+\usepackage{parskip}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xparse}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, decorations.pathreplacing}
+
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue
+}
+
+\newcommand{\checkbox}{\ding{113}}
+\newcommand{\checkgroup}[1]{%
+    \rowcolor{gray!15}
+    \multicolumn{2}{@{}l}{\textbf{#1}} \\
+}
+
+\NewDocumentEnvironment{checklisttable}{m m}
+{%
+    \renewcommand{\arraystretch}{1.25}
+    \begin{longtable}{@{}>{\raggedright\arraybackslash}p{13.5cm} >{\centering\arraybackslash}p{1.5cm}@{}}
+    \caption{#1}
+    \label{#2} \\
+
+    \toprule
+    \textbf{Checklist item} & \textbf{Done} \\
+    \midrule
+    \endfirsthead
+
+    \toprule
+    \textbf{Checklist item} & \textbf{Done} \\
+    \midrule
+    \endhead
+
+    \bottomrule
+    \endfoot
+}
+{%
+    \end{longtable}
+    \renewcommand{\arraystretch}{1}
+}
+
+\newcommand{\checkitem}[1]{#1 & \checkbox \\}
+\newcommand{\checksep}{%
+    \addlinespace[0.5em]
+}
+
+%\renewcommand{\arraystretch}{1.25}
+
+\newcommand{\important}[1]{\textbf{#1}}
+
+\setlist[itemize]{leftmargin=1.5em}
+\setlist[enumerate]{leftmargin=1.5em}
